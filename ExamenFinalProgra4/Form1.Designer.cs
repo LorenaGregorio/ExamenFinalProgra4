@@ -42,6 +42,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +107,7 @@
             this.combensam.Name = "combensam";
             this.combensam.Size = new System.Drawing.Size(121, 21);
             this.combensam.TabIndex = 5;
+            this.combensam.SelectedIndexChanged += new System.EventHandler(this.combensam_SelectedIndexChanged);
             // 
             // txtPrecio
             // 
@@ -163,12 +166,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(130, 384);
+            this.button1.Location = new System.Drawing.Point(143, 403);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 35);
             this.button1.TabIndex = 12;
             this.button1.Text = "AGREGAR";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label8
             // 
@@ -179,11 +183,31 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "label8";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(38, 369);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(42, 13);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "TOTAL";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(173, 369);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(21, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Q. ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
@@ -222,6 +246,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
 

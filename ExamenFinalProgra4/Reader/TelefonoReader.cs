@@ -1,4 +1,6 @@
-﻿using ExamenFinalProgra4.Mapper;
+﻿using ExamenFinalProgra4.DataClass;
+using ExamenFinalProgra4.Mapper;
+using ExamenFinalProgra4.Utils;
 using Modelos.TelefonoModel;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ExamenFinalProgra4.DataClass.QueryRepo;
 
 namespace ExamenFinalProgra4.Reader
 {
