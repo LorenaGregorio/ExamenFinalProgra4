@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos.TelefonoModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,9 +17,30 @@ namespace ExamenFinalProgra4
 
 
         SqlConnection Conexion = new SqlConnection("Data Source=DESKTOP-IO7SKIU\\SQLEXPRESS;Initial Catalog=IpearTelefonosDB;Integrated Security=True");
+        DataSet ds;
+
+        public void actualizar()
+        {
+            Conexion.Open();
+            SqlCommand mostrar = new SqlCommand("SELECT * FROM TelefonoTBL", Conexion);
+            SqlDataAdapter m_datos = new SqlDataAdapter(mostrar);
+
+
+            ds = new DataSet();
+
+
+            m_datos.Fill(ds);
+
+
+            dataGridView1.DataSource = ds.Tables[0];
+
+
+            Conexion.Close();
+        }
+
         public double precio_telefono = 0;
-        public double precio_ensamblaje = 0;
-        public double porcentaje = 0;
+        public double porcentaje_ensamblaje = 0;
+        public double sub_total = 0;
         public double total = 0;
 
         public Form1()
@@ -41,31 +63,52 @@ namespace ExamenFinalProgra4
             {
                 if (combensam.SelectedItem.Equals  ("Guatemala"))
                 {
-                    precio_ensamblaje = 0.03;
-                    total = (precio_telefono * precio_ensamblaje);
+                    porcentaje_ensamblaje = 0.03;
+                    sub_total = (precio_telefono * porcentaje_ensamblaje);
 
                 }
                 if (combensam.SelectedItem.Equals("Brujas"))
                 {
-                    precio_ensamblaje = 0.06;
-                    total = (precio_telefono * precio_ensamblaje);
+                    porcentaje_ensamblaje = 0.06;
+                    sub_total = (precio_telefono * porcentaje_ensamblaje);
 
                 }
                 if (combensam.SelectedItem.Equals("Amsterdam"))
                 {
-                    precio_ensamblaje = 0.09;
-                    total = (precio_telefono * precio_ensamblaje);
+                    porcentaje_ensamblaje = 0.09;
+                    sub_total = (precio_telefono * porcentaje_ensamblaje);
 
                 }
                 if (combensam.SelectedItem.Equals("Londres"))
                 {
-                    precio_ensamblaje = 0.12;
-                    total = (precio_telefono * precio_ensamblaje);
+                    porcentaje_ensamblaje = 0.12;
+                    sub_total = (precio_telefono * porcentaje_ensamblaje);
 
                 }
 
+                total = precio_telefono + sub_total;
+                label10.Text = "Q. " + total;
+                label10.Visible = true;
+
             }
 
+            TelefonoModel t1 = new TelefonoModel();
+
+            t1.Gama_Telefono = combgama.Text;
+            t1.Color_Telefono = combColor.Text;
+            t1.Lugar_Ensamblaje = combensam.Text;
+            t1.Precio_Telefono = txtPrecio.Text;
+
+            Form1 his = new Form1();
+            his.Show();
+
+            this.actualizar();
+
+
+           
+            
         }
+
+        
     }
 }
